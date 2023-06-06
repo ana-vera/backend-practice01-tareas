@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Tarea = require('../models/tareaModel')
 
+//tareas models
 
 const getTarea = asyncHandler( async (req,res)=>{
     const tareas = await Tarea.find({})
