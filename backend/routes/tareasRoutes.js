@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const {getTarea, setTarea, updateTarea, deleteTarea} = require('../controllers/tareasControllers')
+const {getTareas, setTarea, updateTarea, deleteTarea} = require('../controllers/tareasControllers')
 
 router.route('/')
-    .get(getTarea)
+    .get(getTareas)
     .post(setTarea)
 
 router.route('/:id')
