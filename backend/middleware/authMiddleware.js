@@ -13,7 +13,9 @@ const protect = asyncHandler( async(req,res,next)=>{
             //Verificamos el token
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-            //Obtenemos el user del token
+            //Obtenemos el user del token menos el password
+            //cualquier ruta protegida con la funcion protect va a tener acceso
+            //a los datos del usuario menos el pwd
             req.user = await User.findById(decoded.id).select('-password')
 
             //Continuamos con la ejecucion del programa

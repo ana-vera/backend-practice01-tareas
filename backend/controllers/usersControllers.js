@@ -71,7 +71,7 @@ const generateToken = (id) => {
 
 
 const misDatos = asyncHandler ( async(req,res) => {
-    res.json({ message: 'data'})
+    res.status(200).json(req.user)
 })
 
 
