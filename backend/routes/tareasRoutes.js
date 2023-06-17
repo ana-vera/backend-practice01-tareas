@@ -1,14 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const {getTareas, setTarea, updateTarea, deleteTarea} = require('../controllers/tareasControllers')
+const {protect} = require('../middleware/authMiddleware')
 
 router.route('/')
-    .get(getTareas)
-    .post(setTarea)
+    .get(protect, getTareas)
+    .post(protect, setTarea)
 
 router.route('/:id')
-    .put(updateTarea)
-    .delete(deleteTarea)
+    .put(protect, updateTarea)
+    .delete(protect, deleteTarea)
 
 //router.get('/', getTarea)
 //router.post('/', setTarea)

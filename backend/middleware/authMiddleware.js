@@ -16,6 +16,7 @@ const protect = asyncHandler( async(req,res,next)=>{
             //Obtenemos el user del token menos el password
             //cualquier ruta protegida con la funcion protect va a tener acceso
             //a los datos del usuario menos el pwd
+            console.log(decoded.id)
             req.user = await User.findById(decoded.id).select('-password')
 
             //Continuamos con la ejecucion del programa
